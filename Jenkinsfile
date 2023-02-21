@@ -13,7 +13,7 @@ pipeline {
          stage('Logging into AWS ECR') {
             steps {
                 script {
-                sh "aws ecr-public get-login-password --region us-east-1 ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin 461706885282 ${AWS_ACCOUNT_ID}.public.ecr.aws/x8z8q6s2.${AWS_DEFAULT_REGION}.amazonaws.com"
+                sh "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/x8z8q6s2"
                 }
                  
             }
@@ -21,7 +21,7 @@ pipeline {
         
         stage('Cloning Git') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/sd031/aws_codebuild_codedeploy_nodeJs_demo.git']]])     
+                checkout([$class: 'GitSCM', branches: [[name: '*/test']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/sharan9611/go-docker-multi-stage-build.git']]])     
             }
         }
   
