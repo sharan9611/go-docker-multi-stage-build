@@ -13,7 +13,7 @@ pipeline {
          stage('Logging into AWS ECR') {
             steps {
                 script {
-                sh "aws ecr-public get-login-password --region us-east-1 ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.public.ecr.aws/x8z8q6s2.${AWS_DEFAULT_REGION}.amazonaws.com"
+                sh "aws ecr-public get-login-password --region us-east-1 ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin 461706885282 ${AWS_ACCOUNT_ID}.public.ecr.aws/x8z8q6s2.${AWS_DEFAULT_REGION}.amazonaws.com"
                 }
                  
             }
