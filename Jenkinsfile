@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                 sh "docker login --username AWS --password-stdin $(aws ecr-public get-login-password --region us-east-1) public.ecr.aws/x8z8q6s2"
-                }
+             
                  
             }
         }
