@@ -21,7 +21,7 @@ pipeline {
         
         stage('Cloning Git') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/test']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/sharan9611/go-docker-multi-stage-build.git']]])     
+                checkout scmGit(branches: [[name: '*/test']], extensions: [], userRemoteConfigs: [[credentialsId: '23a41ef3-9c8b-41ef-ba7e-17c6fdcf5928', url: 'https://github.com/sharan9611/go-docker-multi-stage-build.git']])     
             }
         }
   
