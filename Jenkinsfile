@@ -42,7 +42,8 @@ pipeline {
              sh "docker tag demo:latest public.ecr.aws/x8z8q6s2/demo:latest:${latest}"
                 sh "docker push public.ecr.aws/x8z8q6s2/demo:latest:${latest}"
           }
-       }
+        }
+      }
     }
   }
-}
+}    
