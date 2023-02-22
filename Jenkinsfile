@@ -5,7 +5,7 @@ pipeline {
         AWS_REGION="us-east-1"
         IMAGE_REPO_NAME="demo"
         IMAGE_TAG="latest"
-        REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
+        REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
     }
    
     stages {
@@ -38,7 +38,7 @@ pipeline {
     stage('Pushing to ECR') {
      steps{  
          script {
-                sh "docker tag demo:latest public.ecr.aws/x8z8q6s2/demo:latest:$latest"
+             sh "docker tag demo:latest public.ecr.aws/x8z8q6s2/demo:latest:${latest}"
                 sh "docker push public.ecr.aws/x8z8q6s2/demo:latest:${latest}"
           }
        }
