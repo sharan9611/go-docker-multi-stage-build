@@ -13,8 +13,7 @@ pipeline {
          stage('Logging into AWS ECR') {
             steps {
                 script {
-                sh '''"withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>])"''' 
-                    // some block"
+                sh '''"aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/x8z8q6s2"'''
                }
                  
             }
